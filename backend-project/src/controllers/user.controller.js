@@ -213,9 +213,10 @@ const changeCurrentPassword = asyncHandler(async(req, res) => {
 })
 
 const getCurrentUser = asyncHandler(async(req, res) => {
+    console.log("Current user is: ",req.user)
     return res
-    .staus(200)
-    .json(200, req.user, "Current user fetched successfully")
+    .status(200)
+    .json(new ApiResponse(200, req.user, "Current user fetched successfully"))
 })
 
 const updateAccountDetails = asyncHandler(async(req, res) => {
@@ -402,8 +403,6 @@ const getWatchHistory = asyncHandler(async(req, res) =>{
         new ApiResponse(200, user[0].watchHistory, "Watch History Fetched Successfully")
     )
 })
-
-
 
 export {
     registerUser,
